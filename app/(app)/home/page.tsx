@@ -1,11 +1,13 @@
 export default function HomePage() {
   return (
-    <main className="min-h-screen p-10">
-      <h1 className="text-2xl font-semibold">Sanctuary</h1>
+    <section className="max-w-3xl">
+      <p className="page-kicker">Sanctuary</p>
+      <h1 className="page-title">A calm place for shared moments</h1>
+      <p className="page-body">This home view will center your active mosaics and recent tesserae without becoming a feed.</p>
 
-      <p className="mt-4 text-gray-600">
-        This will become your Tessera home screen.
-      </p>
-    </main>
-  )
+      <div className="soft-panel">
+        <p className="m-0 text-sm">Home scaffold is stable and ready for focused feature passes.</p>
+      </div>
+    </section>
+  );
 }

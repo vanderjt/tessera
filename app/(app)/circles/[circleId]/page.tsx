@@ -1,17 +1,19 @@
 interface PageProps {
   params: {
-    circleId: string
-  }
+    circleId: string;
+  };
 }
 
 export default function CirclePage({ params }: PageProps) {
   return (
-    <main className="min-h-screen p-10">
-      <h1 className="text-2xl font-semibold">Circle</h1>
+    <section className="max-w-3xl">
+      <p className="page-kicker">Circle</p>
+      <h1 className="page-title">Circle space</h1>
+      <p className="page-body">A circle holds the people who shape this sanctuary chapter.</p>
 
-      <p className="mt-4 text-gray-600">
-        Circle ID: {params.circleId}
-      </p>
-    </main>
-  )
+      <div className="soft-panel">
+        <p className="m-0 text-sm">Viewing circle: {params.circleId}</p>
+      </div>
+    </section>
+  );
 }

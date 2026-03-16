@@ -1,11 +1,15 @@
 export default function SignupPage() {
   return (
-    <main className="min-h-screen p-10">
-      <h1 className="text-2xl font-semibold">Create Account</h1>
+    <main className="page-wrap">
+      <div className="page-inner">
+        <p className="page-kicker">Join</p>
+        <h1 className="page-title">Create your Tessera account</h1>
+        <p className="page-body">Set up a quiet place to keep memories with your circle.</p>
 
-      <p className="mt-4 text-gray-600">
-        Join Tessera and begin sharing moments.
-      </p>
+        <section className="soft-panel">
+          <p className="m-0 text-sm">Sign-up form scaffold will be added in a dedicated auth pass.</p>
+        </section>
+      </div>
     </main>
-  )
+  );
 }
