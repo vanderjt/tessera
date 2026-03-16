@@ -1,17 +1,19 @@
 interface PageProps {
   params: {
-    mosaicId: string
-  }
+    mosaicId: string;
+  };
 }
 
 export default function MosaicPage({ params }: PageProps) {
   return (
-    <main className="min-h-screen p-10">
-      <h1 className="text-2xl font-semibold">Mosaic</h1>
+    <section className="max-w-3xl">
+      <p className="page-kicker">Mosaic</p>
+      <h1 className="page-title">A chapter of shared memory</h1>
+      <p className="page-body">Each mosaic is time-bounded and reflective, made from tesserae contributed by your circle.</p>
 
-      <p className="mt-4 text-gray-600">
-        Mosaic ID: {params.mosaicId}
-      </p>
-    </main>
-  )
+      <div className="soft-panel">
+        <p className="m-0 text-sm">Viewing mosaic: {params.mosaicId}</p>
+      </div>
+    </section>
+  );
 }

@@ -1,11 +1,13 @@
 export default function CirclesPage() {
   return (
-    <main className="min-h-screen p-10">
-      <h1 className="text-2xl font-semibold">Circles</h1>
+    <section className="max-w-3xl">
+      <p className="page-kicker">Circles</p>
+      <h1 className="page-title">Your trusted people</h1>
+      <p className="page-body">Circles gather the small groups you share life with. This page will stay focused and uncluttered.</p>
 
-      <p className="mt-4 text-gray-600">
-        Your circles will appear here.
-      </p>
-    </main>
-  )
+      <div className="soft-panel">
+        <p className="m-0 text-sm">Circle list scaffold placeholder.</p>
+      </div>
+    </section>
+  );
 }

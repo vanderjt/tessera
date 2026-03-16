@@ -1,17 +1,19 @@
 interface PageProps {
   params: {
-    mosaicId: string
-  }
+    mosaicId: string;
+  };
 }
 
 export default function ShareMomentPage({ params }: PageProps) {
   return (
-    <main className="min-h-screen p-10">
-      <h1 className="text-2xl font-semibold">Share a Moment</h1>
+    <section className="max-w-3xl">
+      <p className="page-kicker">Share tessera</p>
+      <h1 className="page-title">Add a single moment</h1>
+      <p className="page-body">Contribute one photo and note to the mosaic, simply and without noise.</p>
 
-      <p className="mt-4 text-gray-600">
-        Share a tessera in mosaic {params.mosaicId}.
-      </p>
-    </main>
-  )
+      <div className="soft-panel">
+        <p className="m-0 text-sm">Sharing into mosaic: {params.mosaicId}</p>
+      </div>
+    </section>
+  );
 }

@@ -12,5 +12,56 @@ body {
 
 body {
   min-height: 100vh;
-  font-family: system-ui, sans-serif;
+  background: #fafaf9;
+  color: #292524;
+  font-family: Inter, "Avenir Next", "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-wrap {
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+}
+
+.page-inner {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 42rem;
+}
+
+.page-kicker {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #78716c;
+}
+
+.page-title {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  font-size: clamp(1.75rem, 4vw, 2.3rem);
+  font-weight: 500;
+  line-height: 1.25;
+  color: #1c1917;
+}
+
+.page-body {
+  margin-top: 1.25rem;
+  color: #57534e;
+}
+
+.soft-panel {
+  margin-top: 2rem;
+  border: 1px solid #e7e5e4;
+  border-radius: 1rem;
+  background: #ffffff;
+  padding: 1.25rem;
+  color: #44403c;
 }
