@@ -38,8 +38,15 @@ const moments = [
 export default async function MosaicPage({ params }: PageProps) {
   const { mosaicId } = await params;
 
+  const placementPattern = [
+    'md:translate-y-0 md:pr-4',
+    'md:translate-y-10 md:pl-4',
+    'md:translate-y-4 md:pr-6',
+    'md:translate-y-12 md:pl-2',
+  ];
+
   return (
-    <section className="max-w-4xl pb-8">
+    <section className="max-w-5xl pb-8">
       <header className="space-y-4 border-b border-stone-200/70 pb-8">
         <p className="page-kicker">Mosaic chapter</p>
         <h1 className="page-title">Late Winter Evenings</h1>
@@ -63,9 +70,14 @@ export default async function MosaicPage({ params }: PageProps) {
         </button>
       </div>
 
-      <div className="mt-10 space-y-10">
+      <div className="mt-10 space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-8 md:space-y-0 lg:gap-x-12">
         {moments.map((moment, index) => (
-          <div key={`${moment.author}-${moment.timestamp}`} className={index % 2 === 1 ? 'md:pl-10' : ''}>
+          <div
+            key={`${moment.author}-${moment.timestamp}`}
+            className={`${placementPattern[index % placementPattern.length]} ${
+              !moment.image ? 'md:w-[92%] md:justify-self-start' : ''
+            }`}
+          >
             <MomentCard
               author={moment.author}
               timestamp={moment.timestamp}
