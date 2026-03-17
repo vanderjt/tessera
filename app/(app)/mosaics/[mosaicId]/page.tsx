@@ -111,26 +111,28 @@ export default async function MosaicPage({ params }: PageProps) {
 
   return (
     <section className="max-w-5xl px-1 pb-10">
-      <header className="space-y-3 pb-2">
-        <p className="page-kicker">Mosaic chapter</p>
-        <h1 className="page-title">Late Winter Evenings</h1>
-        <p className="page-body max-w-2xl">
-          A quiet chapter gathered between February and March, held by the same circle and revisited when you need to
-          feel close again.
-        </p>
-        <p className="text-xs uppercase tracking-[0.18em] text-stone-500">Sanctuary chapter • {mosaicId}</p>
-
-        <div className="space-y-3 pt-1">
-          <p className="max-w-xl text-sm leading-relaxed text-stone-600">
-            These tesserae are placed intentionally, like stones on a shared wall. Take your time and linger where
-            something resonates.
+      <header className="pb-2">
+        <div className="rounded-md border border-stone-300/55 bg-stone-100/85 px-5 py-6 md:px-7 md:py-7">
+          <p className="page-kicker tracking-[0.12em] text-stone-600">Mosaic chapter</p>
+          <h1 className="page-title mt-2 text-stone-900">Late Winter Evenings</h1>
+          <p className="page-body mt-3 max-w-2xl text-stone-700">
+            A quiet chapter gathered between February and March, held by the same circle and revisited when you need
+            to feel close again.
           </p>
-          <button
-            type="button"
-            className="rounded-full border border-stone-300/80 bg-stone-50/70 px-4 py-2 text-sm text-stone-700 transition hover:border-stone-400 hover:text-stone-900"
-          >
-            Add a tessera
-          </button>
+          <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-stone-500">Sanctuary chapter • {mosaicId}</p>
+
+          <div className="mt-5 space-y-3 border-t border-stone-300/45 pt-4">
+            <p className="max-w-xl text-sm leading-relaxed text-stone-600">
+              These tesserae are placed intentionally, like stones on a shared wall. Take your time and linger where
+              something resonates.
+            </p>
+            <button
+              type="button"
+              className="rounded-full border border-stone-400/65 bg-stone-100 px-4 py-2 text-sm text-stone-700 transition hover:border-stone-500 hover:text-stone-900"
+            >
+              Add a tessera
+            </button>
+          </div>
         </div>
       </header>
 
