@@ -89,36 +89,22 @@ const momentBands = [
     slots: ['md:col-span-7 lg:col-span-7', 'md:col-span-5 md:pt-8 lg:col-span-4 lg:col-start-9'],
   },
   {
-    moments: [moments[2]],
-    slots: ['md:col-span-8 lg:col-span-7'],
-  },
-  {
-    moments: [moments[3], moments[4]],
+    moments: [moments[2], moments[3]],
     slots: ['md:col-span-5 lg:col-span-4 lg:col-start-2', 'md:col-span-7 md:pt-6 lg:col-span-6 lg:col-start-7'],
   },
   {
-    moments: [moments[5], moments[6]],
-    slots: ['md:col-span-7 lg:col-span-6', 'md:col-span-5 md:pt-7 lg:col-span-4 lg:col-start-8'],
+    moments: [moments[4], moments[5]],
+    slots: ['md:col-span-8 lg:col-span-7', 'md:col-span-4 md:pt-7 lg:col-span-4 lg:col-start-9'],
   },
   {
-    moments: [moments[7], moments[8]],
-    slots: ['md:col-span-5 lg:col-span-4 lg:col-start-3', 'md:col-span-7 md:pt-5 lg:col-span-6 lg:col-start-7'],
+    moments: [moments[6], moments[7], moments[8]],
+    slots: [
+      'md:col-span-6 lg:col-span-4 lg:col-start-2',
+      'md:col-span-6 md:pt-5 lg:col-span-5 lg:col-start-7',
+      'md:col-span-7 md:col-start-3 lg:col-span-6 lg:col-start-4',
+    ],
   },
 ];
-
-const bandSideByIndex = momentBands.reduce<Record<number, 'left' | 'right'>>((sideMap, band, bandIndex) => {
-  if (band.moments.length !== 1) {
-    return sideMap;
-  }
-
-  const singleBandsSeen = Object.keys(sideMap).length;
-  const side: 'left' | 'right' = singleBandsSeen % 2 === 0 ? 'left' : 'right';
-
-  return {
-    ...sideMap,
-    [bandIndex]: side,
-  };
-}, {});
 
 export default async function MosaicPage({ params }: PageProps) {
   const { mosaicId } = await params;
@@ -154,16 +140,7 @@ export default async function MosaicPage({ params }: PageProps) {
         {momentBands.map((band, bandIndex) => (
           <div key={`band-${bandIndex}`} className="grid gap-5 md:grid-cols-12 lg:gap-6">
             {band.moments.map((moment, momentIndex) => (
-              <div
-                key={`${moment.author}-${moment.timestamp}`}
-                className={
-                  band.moments.length === 1
-                    ? bandSideByIndex[bandIndex] === 'left'
-                      ? `${band.slots[momentIndex]} md:col-start-1 lg:col-start-1`
-                      : `${band.slots[momentIndex]} md:col-start-5 lg:col-start-6`
-                    : band.slots[momentIndex]
-                }
-              >
+              <div key={`${moment.author}-${moment.timestamp}`} className={band.slots[momentIndex]}>
                 <MomentCard
                   author={moment.author}
                   timestamp={moment.timestamp}
