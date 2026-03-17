@@ -62,7 +62,7 @@ export default function ShareMomentPage({ params }: PageProps) {
             <div className="space-y-4">
               <p className="text-base font-medium text-stone-800">What would you like this tessera to hold?</p>
 
-              <div className="rounded-[0.35rem] border border-stone-400/30 bg-stone-100/75 p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.45),inset_0_0_0_1px_rgba(120,113,108,0.2)] sm:p-8">
+              <div className="rounded-[0.35rem] bg-stone-200/70 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.18),inset_0_0_0_1px_rgba(87,83,78,0.2),inset_0_10px_18px_rgba(68,64,60,0.05)] sm:p-8">
                 <textarea
                   id="reflection"
                   value={reflection}
@@ -73,18 +73,7 @@ export default function ShareMomentPage({ params }: PageProps) {
                 />
               </div>
 
-              <p className="text-sm leading-relaxed text-stone-600/95">
-                Stay with the feeling for a moment. Let the reflection carry the memory before anything else.
-              </p>
-            </div>
-
-            <aside className="space-y-5 lg:pl-2">
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.14em] text-stone-500/90">Tool shelf</p>
-                  <p className="text-sm text-stone-700/90">Optional photo tool</p>
-                </div>
-
+              <div className="space-y-3 pt-1">
                 <input
                   id="photo"
                   type="file"
@@ -94,29 +83,32 @@ export default function ShareMomentPage({ params }: PageProps) {
                 />
                 <label
                   htmlFor="photo"
-                  className="group flex min-h-36 cursor-pointer flex-col justify-center gap-3 rounded-[0.35rem] border border-stone-400/25 bg-stone-100/70 px-4 py-5 text-left text-sm text-stone-700 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),inset_0_0_0_1px_rgba(120,113,108,0.2)] transition hover:bg-stone-100/80 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.48),inset_0_0_0_1px_rgba(87,83,78,0.28)]"
+                  className="inline-flex cursor-pointer items-center text-sm text-stone-700/95 transition hover:text-stone-900"
                 >
-                  <span className="text-xs uppercase tracking-[0.12em] text-stone-500/95">Photo placement</span>
-                  <span className="text-base leading-snug text-stone-700">
-                    {photoName ? 'Replace the photo resting on the bench' : 'Rest a photo on the bench'}
-                  </span>
+                  + {photoName ? 'Replace photo' : 'Add photo'}
                 </label>
 
-                {photoName ? <p className="text-xs text-stone-500/95">Set on the bench: {photoName}</p> : null}
                 {photoPreview ? (
-                  <div className="rounded-[0.35rem] border border-stone-400/25 bg-stone-100/70 p-1 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),inset_0_0_0_1px_rgba(120,113,108,0.2)]">
+                  <div className="rounded-[0.3rem] bg-stone-200/55 p-1 shadow-[inset_0_0_0_1px_rgba(87,83,78,0.16)]">
                     <Image
                       src={photoPreview}
                       alt="Selected moment preview"
                       width={960}
                       height={640}
                       unoptimized
-                      className="max-h-48 w-full rounded-[0.2rem] object-cover"
+                      className="max-h-52 w-full rounded-[0.2rem] object-cover"
                     />
                   </div>
                 ) : null}
+                {photoName ? <p className="text-xs text-stone-500/95">Attached: {photoName}</p> : null}
               </div>
 
+              <p className="text-sm leading-relaxed text-stone-600/95">
+                Stay with the feeling for a moment. Let the reflection carry the memory before anything else.
+              </p>
+            </div>
+
+            <aside className="space-y-5 lg:pl-2">
               <div className="mt-5 space-y-2">
                 <p className="text-xs uppercase tracking-[0.14em] text-stone-500/90">Actions</p>
                 <div className="flex flex-wrap items-center gap-2">
