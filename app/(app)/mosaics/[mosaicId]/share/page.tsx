@@ -45,9 +45,8 @@ export default function ShareMomentPage({ params }: PageProps) {
     <section className="mx-auto max-w-4xl px-4 pb-12 sm:px-6">
       <form
         onSubmit={handlePlaceTessera}
-        className="relative mt-4 overflow-hidden rounded-[1.4rem] border border-stone-300/70 bg-gradient-to-b from-stone-100/95 to-stone-200/75 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_16px_28px_-24px_rgba(28,25,23,0.75)] sm:p-8"
+        className="relative mt-4 overflow-hidden rounded-[0.9rem] border border-stone-300/80 bg-gradient-to-b from-stone-100/80 to-stone-200/75 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),inset_0_-1px_0_rgba(120,113,108,0.18),0_4px_10px_-8px_rgba(28,25,23,0.6)] sm:p-8"
       >
-        <div className="pointer-events-none absolute inset-x-8 top-0 h-14 bg-white/25 blur-2xl" />
         <div className="relative space-y-7">
           <header className="space-y-3">
             <p className="page-kicker">Add a tessera</p>
@@ -59,11 +58,11 @@ export default function ShareMomentPage({ params }: PageProps) {
             <p className="text-[11px] uppercase tracking-[0.16em] text-stone-500/95">Mosaic chapter • {mosaicId}</p>
           </header>
 
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start lg:gap-5">
             <div className="space-y-4">
               <p className="text-base font-medium text-stone-800">What would you like this tessera to hold?</p>
 
-              <div className="rounded-[1.1rem] border border-stone-300/75 bg-stone-50/95 p-5 shadow-[0_12px_22px_-18px_rgba(41,37,36,0.85),0_2px_0_rgba(255,255,255,0.8)] sm:p-7">
+              <div className="rounded-[0.7rem] border border-stone-300/85 bg-stone-50/95 p-5 shadow-[0_5px_12px_-10px_rgba(41,37,36,0.7),0_1px_0_rgba(255,255,255,0.7)] sm:p-7">
                 <textarea
                   id="reflection"
                   value={reflection}
@@ -79,8 +78,8 @@ export default function ShareMomentPage({ params }: PageProps) {
               </p>
             </div>
 
-            <aside className="rounded-xl border border-stone-300/70 bg-stone-100/80 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.75)]">
-              <div className="space-y-4">
+            <aside className="border-stone-300/75 lg:border-l lg:pl-5">
+              <div className="space-y-4 rounded-[0.65rem] border border-stone-300/70 bg-stone-100/55 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-1px_0_rgba(120,113,108,0.12)]">
                 <div className="space-y-2">
                   <p className="text-xs uppercase tracking-[0.14em] text-stone-500/90">Tool shelf</p>
                   <p className="text-sm text-stone-700/95">Optional photo tool</p>
@@ -95,9 +94,9 @@ export default function ShareMomentPage({ params }: PageProps) {
                 />
                 <label
                   htmlFor="photo"
-                  className="group flex cursor-pointer items-center gap-3 rounded-lg border border-dashed border-stone-400/80 bg-stone-50/95 px-3 py-3 text-left text-sm text-stone-700 transition hover:border-stone-500"
+                  className="group flex cursor-pointer items-center gap-3 rounded-md border border-dashed border-stone-400/80 bg-stone-50/90 px-3 py-3 text-left text-sm text-stone-700 transition hover:border-stone-500"
                 >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-stone-200/90 text-base text-stone-700 transition group-hover:bg-stone-300/90">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm bg-stone-200/90 text-base text-stone-700 transition group-hover:bg-stone-300/90">
                     +
                   </span>
                   <span className="leading-snug">
@@ -113,7 +112,7 @@ export default function ShareMomentPage({ params }: PageProps) {
                     width={960}
                     height={640}
                     unoptimized
-                    className="max-h-48 w-full rounded-lg object-cover ring-1 ring-stone-300/70"
+                    className="max-h-48 w-full rounded-md object-cover ring-1 ring-stone-300/70"
                   />
                 ) : null}
               </div>
