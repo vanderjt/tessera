@@ -39,10 +39,10 @@ export default async function MosaicPage({ params }: PageProps) {
   const { mosaicId } = await params;
 
   const placementPattern = [
-    'md:translate-y-0 md:pr-5',
-    'md:translate-y-8 md:pl-3',
-    'md:translate-y-3 md:pr-8',
-    'md:translate-y-10 md:pl-2',
+    'md:col-span-7 md:translate-y-0 md:pr-5 lg:col-span-6 lg:pr-8',
+    'md:col-span-5 md:translate-y-9 md:max-w-[27rem] md:justify-self-end lg:col-span-4 lg:col-start-8 lg:translate-y-10',
+    'md:col-span-8 md:translate-y-3 md:max-w-[40rem] md:pr-7 lg:col-span-6 lg:col-start-2 lg:translate-y-2',
+    'md:col-span-5 md:translate-y-11 md:max-w-[26rem] md:justify-self-end lg:col-span-4 lg:col-start-8',
   ];
 
   return (
@@ -72,12 +72,12 @@ export default async function MosaicPage({ params }: PageProps) {
         </button>
       </div>
 
-      <div className="mt-9 space-y-9 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] md:gap-x-6 md:gap-y-7 md:space-y-0 lg:gap-x-10">
+      <div className="mt-9 space-y-9 md:grid md:grid-cols-12 md:gap-x-5 md:gap-y-8 md:space-y-0 lg:gap-x-8 lg:gap-y-10">
         {moments.map((moment, index) => (
           <div
             key={`${moment.author}-${moment.timestamp}`}
             className={`${placementPattern[index % placementPattern.length]} ${
-              !moment.image ? 'md:w-[93%] md:justify-self-start' : ''
+              !moment.image ? 'md:w-[96%]' : ''
             }`}
           >
             <MomentCard
