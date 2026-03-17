@@ -58,7 +58,7 @@ export default function ShareMomentPage({ params }: PageProps) {
             <p className="text-[11px] uppercase tracking-[0.16em] text-stone-500/95">Mosaic chapter • {mosaicId}</p>
           </header>
 
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start lg:gap-5">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start lg:gap-8">
             <div className="space-y-4">
               <p className="text-base font-medium text-stone-800">What would you like this tessera to hold?</p>
 
@@ -68,7 +68,7 @@ export default function ShareMomentPage({ params }: PageProps) {
                   value={reflection}
                   onChange={(event) => setReflection(event.target.value)}
                   placeholder="Begin with the part of this moment you most want to keep."
-                  rows={10}
+                  rows={9}
                   className="w-full resize-none border-0 bg-transparent p-0 text-base leading-relaxed text-stone-800 outline-none placeholder:text-stone-500/80"
                 />
               </div>
@@ -78,8 +78,8 @@ export default function ShareMomentPage({ params }: PageProps) {
               </p>
             </div>
 
-            <aside className="border-stone-300/75 lg:border-l lg:pl-5">
-              <div className="space-y-4 rounded-[0.65rem] border border-stone-300/70 bg-stone-100/55 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-1px_0_rgba(120,113,108,0.12)]">
+            <aside className="space-y-5 lg:border-l lg:border-stone-400/80 lg:pl-8">
+              <div className="space-y-4">
                 <div className="space-y-2">
                   <p className="text-xs uppercase tracking-[0.14em] text-stone-500/90">Tool shelf</p>
                   <p className="text-sm text-stone-700/95">Optional photo tool</p>
@@ -94,13 +94,11 @@ export default function ShareMomentPage({ params }: PageProps) {
                 />
                 <label
                   htmlFor="photo"
-                  className="group flex cursor-pointer items-center gap-3 rounded-md border border-dashed border-stone-400/80 bg-stone-50/90 px-3 py-3 text-left text-sm text-stone-700 transition hover:border-stone-500"
+                  className="group flex min-h-36 cursor-pointer flex-col justify-center gap-3 rounded-[0.7rem] border border-dashed border-stone-400/80 bg-stone-50/70 px-4 py-5 text-left text-sm text-stone-700 transition hover:border-stone-500"
                 >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm bg-stone-200/90 text-base text-stone-700 transition group-hover:bg-stone-300/90">
-                    +
-                  </span>
-                  <span className="leading-snug">
-                    {photoName ? 'Replace photo' : 'Rest a photo on the bench'}
+                  <span className="text-xs uppercase tracking-[0.12em] text-stone-500/95">Photo placement</span>
+                  <span className="text-base leading-snug text-stone-700">
+                    {photoName ? 'Replace the photo resting on the bench' : 'Rest a photo on the bench'}
                   </span>
                 </label>
 
