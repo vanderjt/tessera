@@ -45,11 +45,11 @@ export default function ShareMomentPage({ params }: PageProps) {
     <section className="mx-auto max-w-4xl px-4 pb-12 sm:px-6">
       <form
         onSubmit={handlePlaceTessera}
-        className="relative mt-4 overflow-hidden rounded-[2.25rem] bg-gradient-to-b from-stone-100/95 via-stone-100/90 to-stone-200/85 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.72),inset_0_-30px_60px_-40px_rgba(68,64,60,0.6),0_30px_50px_-38px_rgba(41,37,36,0.85)] ring-1 ring-stone-300/60 sm:p-10"
+        className="relative mt-4 overflow-hidden rounded-[1.4rem] border border-stone-300/70 bg-gradient-to-b from-stone-100/95 to-stone-200/75 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_16px_28px_-24px_rgba(28,25,23,0.75)] sm:p-8"
       >
-        <div className="pointer-events-none absolute inset-x-6 top-4 h-20 rounded-full bg-white/35 blur-3xl sm:inset-x-20" />
-        <div className="relative space-y-8">
-          <header className="space-y-3 border-b border-stone-300/55 pb-7">
+        <div className="pointer-events-none absolute inset-x-8 top-0 h-14 bg-white/25 blur-2xl" />
+        <div className="relative space-y-7">
+          <header className="space-y-3">
             <p className="page-kicker">Add a tessera</p>
             <h1 className="page-title">Add a tessera</h1>
             <p className="page-body max-w-2xl text-stone-700/95">
@@ -59,32 +59,33 @@ export default function ShareMomentPage({ params }: PageProps) {
             <p className="text-[11px] uppercase tracking-[0.16em] text-stone-500/95">Mosaic chapter • {mosaicId}</p>
           </header>
 
-          <div className="space-y-4">
-            <p className="text-base font-medium text-stone-800">What would you like this tessera to hold?</p>
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start">
+            <div className="space-y-4">
+              <p className="text-base font-medium text-stone-800">What would you like this tessera to hold?</p>
 
-            <div className="rounded-[1.9rem] bg-stone-50/95 p-5 shadow-[0_18px_28px_-26px_rgba(41,37,36,0.9),0_3px_0_0_rgba(255,255,255,0.8)] ring-1 ring-stone-200/75 sm:p-7">
-              <textarea
-                id="reflection"
-                value={reflection}
-                onChange={(event) => setReflection(event.target.value)}
-                placeholder="Begin with the part of this moment you most want to keep."
-                rows={8}
-                className="w-full resize-none border-0 bg-transparent p-0 text-base leading-relaxed text-stone-800 outline-none placeholder:text-stone-500/80"
-              />
+              <div className="rounded-[1.1rem] border border-stone-300/75 bg-stone-50/95 p-5 shadow-[0_12px_22px_-18px_rgba(41,37,36,0.85),0_2px_0_rgba(255,255,255,0.8)] sm:p-7">
+                <textarea
+                  id="reflection"
+                  value={reflection}
+                  onChange={(event) => setReflection(event.target.value)}
+                  placeholder="Begin with the part of this moment you most want to keep."
+                  rows={10}
+                  className="w-full resize-none border-0 bg-transparent p-0 text-base leading-relaxed text-stone-800 outline-none placeholder:text-stone-500/80"
+                />
+              </div>
+
+              <p className="text-sm leading-relaxed text-stone-600/95">
+                Stay with the feeling for a moment. Let the reflection carry the memory before anything else.
+              </p>
             </div>
 
-            <p className="text-sm leading-relaxed text-stone-600/95">
-              Stay with the feeling for a moment. Let the reflection carry the memory before anything else.
-            </p>
-          </div>
+            <aside className="rounded-xl border border-stone-300/70 bg-stone-100/80 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.75)]">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <p className="text-xs uppercase tracking-[0.14em] text-stone-500/90">Tool shelf</p>
+                  <p className="text-sm text-stone-700/95">Optional photo tool</p>
+                </div>
 
-          <div className="space-y-5 border-t border-stone-300/55 pt-6">
-            <div className="space-y-3">
-              <label htmlFor="photo" className="block text-sm font-medium text-stone-700/95">
-                Optional photo tool
-              </label>
-
-              <div className="rounded-2xl bg-stone-50/70 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.75)] ring-1 ring-stone-200/70">
                 <input
                   id="photo"
                   type="file"
@@ -94,11 +95,17 @@ export default function ShareMomentPage({ params }: PageProps) {
                 />
                 <label
                   htmlFor="photo"
-                  className="inline-flex cursor-pointer items-center rounded-full bg-stone-200/80 px-4 py-2 text-sm text-stone-700 transition hover:bg-stone-300/80"
+                  className="group flex cursor-pointer items-center gap-3 rounded-lg border border-dashed border-stone-400/80 bg-stone-50/95 px-3 py-3 text-left text-sm text-stone-700 transition hover:border-stone-500"
                 >
-                  Choose photo
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-stone-200/90 text-base text-stone-700 transition group-hover:bg-stone-300/90">
+                    +
+                  </span>
+                  <span className="leading-snug">
+                    {photoName ? 'Replace photo' : 'Rest a photo on the bench'}
+                  </span>
                 </label>
-                {photoName ? <p className="mt-3 text-xs text-stone-500/95">Set on the bench: {photoName}</p> : null}
+
+                {photoName ? <p className="text-xs text-stone-500/95">Set on the bench: {photoName}</p> : null}
                 {photoPreview ? (
                   <Image
                     src={photoPreview}
@@ -106,27 +113,30 @@ export default function ShareMomentPage({ params }: PageProps) {
                     width={960}
                     height={640}
                     unoptimized
-                    className="mt-4 max-h-64 w-full rounded-xl object-cover ring-1 ring-stone-300/70"
+                    className="max-h-48 w-full rounded-lg object-cover ring-1 ring-stone-300/70"
                   />
                 ) : null}
               </div>
-            </div>
 
-            <div className="flex items-center gap-3 pt-1">
-              <Link
-                href={`/mosaics/${mosaicId}`}
-                className="rounded-full border border-stone-300/85 px-4 py-2 text-sm text-stone-700 transition hover:border-stone-400 hover:text-stone-900"
-              >
-                Cancel
-              </Link>
-              <button
-                type="submit"
-                disabled={!canPlaceTessera}
-                className="rounded-full bg-stone-900 px-5 py-2 text-sm text-stone-100 transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-100"
-              >
-                Place tessera
-              </button>
-            </div>
+              <div className="mt-5 space-y-2">
+                <p className="text-xs uppercase tracking-[0.14em] text-stone-500/90">Actions</p>
+                <div className="flex flex-wrap items-center gap-2">
+                  <Link
+                    href={`/mosaics/${mosaicId}`}
+                    className="rounded-full border border-stone-300/85 px-4 py-2 text-sm text-stone-700 transition hover:border-stone-400 hover:text-stone-900"
+                  >
+                    Cancel
+                  </Link>
+                  <button
+                    type="submit"
+                    disabled={!canPlaceTessera}
+                    className="rounded-full bg-stone-900 px-5 py-2 text-sm text-stone-100 transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-100"
+                  >
+                    Place tessera
+                  </button>
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </form>
