@@ -110,7 +110,7 @@ export default async function MosaicPage({ params }: PageProps) {
   const { mosaicId } = await params;
 
   return (
-    <section className="max-w-5xl rounded-[2rem] bg-stone-50/45 px-1 pb-10">
+    <section className="max-w-5xl px-1 pb-10">
       <header className="space-y-3 pb-2">
         <p className="page-kicker">Mosaic chapter</p>
         <h1 className="page-title">Late Winter Evenings</h1>
@@ -134,25 +134,27 @@ export default async function MosaicPage({ params }: PageProps) {
         </div>
       </header>
 
-      <div aria-hidden="true" className="mx-3 h-px bg-gradient-to-r from-transparent via-stone-300/35 to-transparent" />
+      <div className="mt-10 bg-stone-100/35 px-1 pt-8 pb-2 md:px-2">
+        <div aria-hidden="true" className="mx-2 h-px bg-stone-300/30" />
 
-      <div className="mt-9 space-y-8">
-        {momentBands.map((band, bandIndex) => (
-          <div key={`band-${bandIndex}`} className="grid gap-5 md:grid-cols-12 lg:gap-6">
-            {band.moments.map((moment, momentIndex) => (
-              <div key={`${moment.author}-${moment.timestamp}`} className={band.slots[momentIndex]}>
-                <MomentCard
-                  author={moment.author}
-                  timestamp={moment.timestamp}
-                  reflection={moment.reflection}
-                  image={moment.image}
-                  notePrompt="What did this moment feel like for you?"
-                  noteCtaLabel="Leave your private note"
-                />
-              </div>
-            ))}
-          </div>
-        ))}
+        <div className="mt-8 space-y-8">
+          {momentBands.map((band, bandIndex) => (
+            <div key={`band-${bandIndex}`} className="grid gap-5 md:grid-cols-12 lg:gap-6">
+              {band.moments.map((moment, momentIndex) => (
+                <div key={`${moment.author}-${moment.timestamp}`} className={band.slots[momentIndex]}>
+                  <MomentCard
+                    author={moment.author}
+                    timestamp={moment.timestamp}
+                    reflection={moment.reflection}
+                    image={moment.image}
+                    notePrompt="What did this moment feel like for you?"
+                    noteCtaLabel="Leave your private note"
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
