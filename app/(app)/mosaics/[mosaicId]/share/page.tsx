@@ -45,7 +45,7 @@ export default function ShareMomentPage({ params }: PageProps) {
     <section className="mx-auto max-w-4xl px-4 pb-12 sm:px-6">
       <form
         onSubmit={handlePlaceTessera}
-        className="relative mt-4 overflow-hidden rounded-[0.35rem] bg-gradient-to-b from-stone-100/75 via-stone-100/65 to-stone-200/55 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.42)] sm:p-8"
+        className="relative mt-4 overflow-hidden rounded-[0.35rem] bg-gradient-to-b from-stone-100/80 via-stone-100/70 to-stone-200/60 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.32),inset_0_-1px_0_rgba(120,113,108,0.2)] sm:p-8"
       >
         <div className="relative space-y-7">
           <header className="space-y-3">
@@ -62,7 +62,7 @@ export default function ShareMomentPage({ params }: PageProps) {
             <div className="space-y-4">
               <p className="text-base font-medium text-stone-800">What would you like this tessera to hold?</p>
 
-              <div className="rounded-[0.35rem] border border-stone-300/70 bg-stone-50/98 p-6 shadow-[0_14px_24px_-20px_rgba(28,25,23,0.55),0_1px_0_rgba(255,255,255,0.7)] ring-1 ring-stone-200/60 sm:p-8">
+              <div className="rounded-[0.35rem] border border-stone-400/30 bg-stone-100/75 p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.45),inset_0_0_0_1px_rgba(120,113,108,0.2)] sm:p-8">
                 <textarea
                   id="reflection"
                   value={reflection}
@@ -94,7 +94,7 @@ export default function ShareMomentPage({ params }: PageProps) {
                 />
                 <label
                   htmlFor="photo"
-                  className="group flex min-h-36 cursor-pointer flex-col justify-center gap-3 rounded-[0.35rem] bg-stone-100/60 px-4 py-5 text-left text-sm text-stone-700 shadow-[inset_0_0_0_1px_rgba(120,113,108,0.24)] transition hover:bg-stone-100/75 hover:shadow-[inset_0_0_0_1px_rgba(87,83,78,0.35)]"
+                  className="group flex min-h-36 cursor-pointer flex-col justify-center gap-3 rounded-[0.35rem] border border-stone-400/25 bg-stone-100/70 px-4 py-5 text-left text-sm text-stone-700 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),inset_0_0_0_1px_rgba(120,113,108,0.2)] transition hover:bg-stone-100/80 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.48),inset_0_0_0_1px_rgba(87,83,78,0.28)]"
                 >
                   <span className="text-xs uppercase tracking-[0.12em] text-stone-500/95">Photo placement</span>
                   <span className="text-base leading-snug text-stone-700">
@@ -104,14 +104,16 @@ export default function ShareMomentPage({ params }: PageProps) {
 
                 {photoName ? <p className="text-xs text-stone-500/95">Set on the bench: {photoName}</p> : null}
                 {photoPreview ? (
-                  <Image
-                    src={photoPreview}
-                    alt="Selected moment preview"
-                    width={960}
-                    height={640}
-                    unoptimized
-                    className="max-h-48 w-full rounded-[0.35rem] object-cover ring-1 ring-stone-300/60"
-                  />
+                  <div className="rounded-[0.35rem] border border-stone-400/25 bg-stone-100/70 p-1 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),inset_0_0_0_1px_rgba(120,113,108,0.2)]">
+                    <Image
+                      src={photoPreview}
+                      alt="Selected moment preview"
+                      width={960}
+                      height={640}
+                      unoptimized
+                      className="max-h-48 w-full rounded-[0.2rem] object-cover"
+                    />
+                  </div>
                 ) : null}
               </div>
 
@@ -120,14 +122,14 @@ export default function ShareMomentPage({ params }: PageProps) {
                 <div className="flex flex-wrap items-center gap-2">
                   <Link
                     href={`/mosaics/${mosaicId}`}
-                    className="rounded-[0.35rem] border border-stone-300/90 px-4 py-2 text-sm text-stone-700 transition hover:border-stone-400 hover:text-stone-900"
+                    className="rounded-[0.35rem] border border-stone-400/45 bg-stone-100/55 px-4 py-2 text-sm text-stone-700 transition hover:border-stone-500/50 hover:bg-stone-100/75 hover:text-stone-900"
                   >
                     Cancel
                   </Link>
                   <button
                     type="submit"
                     disabled={!canPlaceTessera}
-                    className="rounded-[0.35rem] bg-stone-900 px-5 py-2 text-sm text-stone-100 transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-100"
+                    className="rounded-[0.35rem] border border-stone-900/85 bg-stone-900 px-5 py-2 text-sm text-stone-100 shadow-[0_1px_2px_rgba(28,25,23,0.28)] transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:border-stone-400/60 disabled:bg-stone-300 disabled:text-stone-100 disabled:shadow-none"
                   >
                     Place tessera
                   </button>
