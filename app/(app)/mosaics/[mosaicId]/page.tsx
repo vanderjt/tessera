@@ -18,6 +18,12 @@ const moments = [
     },
   },
   {
+    author: 'Jonah',
+    timestamp: 'Remembered Feb 27, 2026',
+    reflection:
+      'I found your note tucked into the cookbook again. The paper is soft at the fold now. I still read it before I start chopping anything.',
+  },
+  {
     author: 'Noor',
     timestamp: 'Remembered Mar 10, 2026',
     reflection:
@@ -38,10 +44,10 @@ const moments = [
     },
   },
   {
-    author: 'Jonah',
-    timestamp: 'Remembered Feb 27, 2026',
+    author: 'Sam',
+    timestamp: 'Remembered Feb 18, 2026',
     reflection:
-      'I found your note tucked into the cookbook again. The paper is soft at the fold now. I still read it before I start chopping anything.',
+      'No one was in a hurry, so supper stretched. Someone poured one last cup of tea and we stayed at the table until the street was fully dark.',
   },
   {
     author: 'Lina',
@@ -54,10 +60,10 @@ const moments = [
     },
   },
   {
-    author: 'Sam',
-    timestamp: 'Remembered Feb 18, 2026',
+    author: 'Rae',
+    timestamp: 'Remembered Feb 8, 2026',
     reflection:
-      'No one was in a hurry, so supper stretched. Someone poured one last cup of tea and we stayed at the table until the street was fully dark.',
+      'I heard laughter from the kitchen before I reached the door and knew it was one of those evenings that would feel familiar for a long time.',
   },
   {
     author: 'Ivy',
@@ -68,12 +74,6 @@ const moments = [
       src: '/images/moments/shoreline.svg',
       alt: 'Muted winter shoreline under pale sky',
     },
-  },
-  {
-    author: 'Rae',
-    timestamp: 'Remembered Feb 8, 2026',
-    reflection:
-      'I heard laughter from the kitchen before I reached the door and knew it was one of those evenings that would feel familiar for a long time.',
   },
   {
     author: 'Theo',
@@ -88,9 +88,11 @@ export default async function MosaicPage({ params }: PageProps) {
 
   const placementPattern = [
     'md:col-span-7 md:translate-y-0 md:pr-5 lg:col-span-6 lg:pr-8',
-    'md:col-span-5 md:translate-y-9 md:max-w-[27rem] md:justify-self-end lg:col-span-4 lg:col-start-8 lg:translate-y-10',
-    'md:col-span-8 md:translate-y-3 md:max-w-[40rem] md:pr-7 lg:col-span-6 lg:col-start-2 lg:translate-y-2',
-    'md:col-span-5 md:translate-y-11 md:max-w-[26rem] md:justify-self-end lg:col-span-4 lg:col-start-8',
+    'md:col-span-5 md:translate-y-8 md:max-w-[29rem] md:justify-self-end lg:col-span-5 lg:col-start-8',
+    'md:col-span-7 md:translate-y-3 md:justify-self-end lg:col-span-6 lg:col-start-7 lg:translate-y-2',
+    'md:col-span-5 md:translate-y-10 md:max-w-[30rem] lg:col-span-5 lg:col-start-2',
+    'md:col-span-6 md:translate-y-2 md:pr-6 lg:col-span-6 lg:col-start-1',
+    'md:col-span-6 md:translate-y-8 md:justify-self-end lg:col-span-6 lg:col-start-7',
   ];
 
   return (
@@ -122,12 +124,7 @@ export default async function MosaicPage({ params }: PageProps) {
 
       <div className="mt-9 space-y-9 md:grid md:grid-cols-12 md:gap-x-5 md:gap-y-8 md:space-y-0 lg:gap-x-8 lg:gap-y-10">
         {moments.map((moment, index) => (
-          <div
-            key={`${moment.author}-${moment.timestamp}`}
-            className={`${placementPattern[index % placementPattern.length]} ${
-              !moment.image ? 'md:w-[96%]' : ''
-            }`}
-          >
+          <div key={`${moment.author}-${moment.timestamp}`} className={placementPattern[index % placementPattern.length]}>
             <MomentCard
               author={moment.author}
               timestamp={moment.timestamp}
