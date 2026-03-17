@@ -86,26 +86,35 @@ const moments = [
 const momentBands = [
   {
     moments: [moments[0], moments[1]],
-    spacing: 'mt-1',
-    slots: ['md:col-span-7 lg:col-span-7', 'md:col-span-5 md:pt-8 lg:col-span-4 lg:col-start-9'],
+    spacing: 'mt-1 md:mt-1.5',
+    slots: [
+      'md:col-span-7 md:translate-x-px lg:col-span-7',
+      'md:col-span-5 md:pt-8 md:-translate-x-px lg:col-span-4 lg:col-start-9',
+    ],
   },
   {
     moments: [moments[2], moments[3]],
-    spacing: 'mt-2',
-    slots: ['md:col-span-5 lg:col-span-4 lg:col-start-2', 'md:col-span-7 md:pt-6 lg:col-span-6 lg:col-start-7'],
+    spacing: 'mt-2 md:mt-[0.65rem] lg:mt-3',
+    slots: [
+      'md:col-span-5 md:translate-x-[2px] lg:col-span-4 lg:col-start-2',
+      'md:col-span-7 md:pt-6 md:-translate-x-px lg:col-span-6 lg:col-start-7',
+    ],
   },
   {
     moments: [moments[4], moments[5]],
-    spacing: 'mt-1.5',
-    slots: ['md:col-span-8 lg:col-span-7', 'md:col-span-4 md:pt-7 lg:col-span-4 lg:col-start-9'],
+    spacing: 'mt-1.5 md:mt-2',
+    slots: [
+      'md:col-span-8 md:-translate-x-px lg:col-span-7',
+      'md:col-span-4 md:pt-7 md:translate-x-px lg:col-span-4 lg:col-start-9',
+    ],
   },
   {
     moments: [moments[6], moments[7], moments[8]],
-    spacing: 'mt-3',
+    spacing: 'mt-2.5 md:mt-3.5',
     slots: [
-      'md:col-span-6 lg:col-span-4 lg:col-start-2',
-      'md:col-span-6 md:pt-5 lg:col-span-5 lg:col-start-7',
-      'md:col-span-7 md:col-start-3 lg:col-span-6 lg:col-start-4',
+      'md:col-span-6 md:translate-x-px lg:col-span-4 lg:col-start-2',
+      'md:col-span-6 md:pt-5 md:-translate-x-[2px] lg:col-span-5 lg:col-start-7',
+      'md:col-span-7 md:col-start-3 md:translate-x-px lg:col-span-6 lg:col-start-4',
     ],
   },
 ];
