@@ -111,7 +111,7 @@ export default async function MosaicPage({ params }: PageProps) {
 
   return (
     <section className="max-w-5xl px-1 pb-10">
-      <header className="pb-2">
+      <header className="pb-1">
         <div className="rounded-md border border-stone-300/55 bg-stone-100/85 px-5 py-6 md:px-7 md:py-7">
           <p className="page-kicker tracking-[0.12em] text-stone-600">Mosaic chapter</p>
           <h1 className="page-title mt-2 text-stone-900">Late Winter Evenings</h1>
@@ -136,10 +136,10 @@ export default async function MosaicPage({ params }: PageProps) {
         </div>
       </header>
 
-      <div className="mt-10 bg-stone-100/35 px-1 pt-8 pb-2 md:px-2">
+      <div className="mt-4 bg-stone-100/35 px-1 pt-6 pb-2 md:px-2">
         <div aria-hidden="true" className="mx-2 h-px bg-stone-300/30" />
 
-        <div className="mt-8 space-y-8">
+        <div className="mt-6 space-y-8">
           {momentBands.map((band, bandIndex) => (
             <div key={`band-${bandIndex}`} className="grid gap-5 md:grid-cols-12 lg:gap-6">
               {band.moments.map((moment, momentIndex) => (
