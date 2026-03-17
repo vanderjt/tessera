@@ -45,7 +45,7 @@ export default function ShareMomentPage({ params }: PageProps) {
     <section className="mx-auto max-w-4xl px-4 pb-12 sm:px-6">
       <form
         onSubmit={handlePlaceTessera}
-        className="relative mt-4 overflow-hidden rounded-[0.35rem] bg-gradient-to-b from-stone-100/80 via-stone-100/70 to-stone-200/60 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.32),inset_0_-1px_0_rgba(120,113,108,0.2)] sm:p-8"
+        className="relative mt-4 overflow-hidden rounded-[0.35rem] bg-gradient-to-b from-stone-50/95 via-stone-100/90 to-stone-200/65 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-1px_0_rgba(120,113,108,0.16)] sm:p-8"
       >
         <div className="relative space-y-7">
           <header className="space-y-3">
@@ -62,7 +62,7 @@ export default function ShareMomentPage({ params }: PageProps) {
             <div className="space-y-4">
               <p className="text-base font-medium text-stone-800">What would you like this tessera to hold?</p>
 
-              <div className="rounded-[0.35rem] bg-stone-200/70 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.18),inset_0_0_0_1px_rgba(87,83,78,0.2),inset_0_10px_18px_rgba(68,64,60,0.05)] sm:p-8">
+              <div className="rounded-[0.35rem] bg-stone-200/52 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.34),inset_0_0_0_1px_rgba(87,83,78,0.16),inset_0_8px_14px_rgba(68,64,60,0.035)] sm:p-8">
                 <textarea
                   id="reflection"
                   value={reflection}
@@ -89,7 +89,7 @@ export default function ShareMomentPage({ params }: PageProps) {
                 </label>
 
                 {photoPreview ? (
-                  <div className="rounded-[0.3rem] bg-stone-200/55 p-1 shadow-[inset_0_0_0_1px_rgba(87,83,78,0.16)]">
+                  <div className="rounded-[0.3rem] bg-stone-200/50 p-1 shadow-[inset_0_0_0_1px_rgba(87,83,78,0.14),inset_0_1px_0_rgba(255,255,255,0.26)]">
                     <Image
                       src={photoPreview}
                       alt="Selected moment preview"
