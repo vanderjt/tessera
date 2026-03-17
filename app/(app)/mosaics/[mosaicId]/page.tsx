@@ -83,17 +83,31 @@ const moments = [
   },
 ];
 
+const momentBands = [
+  {
+    moments: [moments[0], moments[1]],
+    slots: ['md:col-span-7 lg:col-span-7', 'md:col-span-5 md:pt-8 lg:col-span-4 lg:col-start-9'],
+  },
+  {
+    moments: [moments[2]],
+    slots: ['md:col-span-8 md:col-start-3 lg:col-span-7 lg:col-start-4'],
+  },
+  {
+    moments: [moments[3], moments[4]],
+    slots: ['md:col-span-5 lg:col-span-4 lg:col-start-2', 'md:col-span-7 md:pt-6 lg:col-span-6 lg:col-start-7'],
+  },
+  {
+    moments: [moments[5], moments[6]],
+    slots: ['md:col-span-7 lg:col-span-6', 'md:col-span-5 md:pt-7 lg:col-span-4 lg:col-start-8'],
+  },
+  {
+    moments: [moments[7], moments[8]],
+    slots: ['md:col-span-5 lg:col-span-4 lg:col-start-3', 'md:col-span-7 md:pt-5 lg:col-span-6 lg:col-start-7'],
+  },
+];
+
 export default async function MosaicPage({ params }: PageProps) {
   const { mosaicId } = await params;
-
-  const placementPattern = [
-    'md:col-span-7 md:translate-y-0 md:pr-5 lg:col-span-6 lg:pr-8',
-    'md:col-span-5 md:translate-y-4 md:max-w-[29rem] md:justify-self-end lg:col-span-5 lg:col-start-8 lg:translate-y-3',
-    'md:col-span-7 md:translate-y-1 md:justify-self-end lg:col-span-6 lg:col-start-7 lg:translate-y-0',
-    'md:col-span-5 md:translate-y-5 md:max-w-[30rem] lg:col-span-5 lg:col-start-2 lg:translate-y-4',
-    'md:col-span-6 md:translate-y-0 md:pr-6 lg:col-span-6 lg:col-start-1',
-    'md:col-span-6 md:translate-y-4 md:justify-self-end lg:col-span-6 lg:col-start-7 lg:translate-y-3',
-  ];
 
   return (
     <section className="max-w-5xl rounded-[2rem] bg-stone-50/45 px-1 pb-10">
@@ -122,17 +136,21 @@ export default async function MosaicPage({ params }: PageProps) {
         </button>
       </div>
 
-      <div className="mt-8 space-y-7 md:grid md:grid-cols-12 md:gap-x-5 md:gap-y-6 md:space-y-0 lg:gap-x-8 lg:gap-y-7">
-        {moments.map((moment, index) => (
-          <div key={`${moment.author}-${moment.timestamp}`} className={placementPattern[index % placementPattern.length]}>
-            <MomentCard
-              author={moment.author}
-              timestamp={moment.timestamp}
-              reflection={moment.reflection}
-              image={moment.image}
-              notePrompt="What did this moment feel like for you?"
-              noteCtaLabel="Leave your private note"
-            />
+      <div className="mt-8 space-y-8">
+        {momentBands.map((band, bandIndex) => (
+          <div key={`band-${bandIndex}`} className="grid gap-5 md:grid-cols-12 lg:gap-6">
+            {band.moments.map((moment, momentIndex) => (
+              <div key={`${moment.author}-${moment.timestamp}`} className={band.slots[momentIndex]}>
+                <MomentCard
+                  author={moment.author}
+                  timestamp={moment.timestamp}
+                  reflection={moment.reflection}
+                  image={moment.image}
+                  notePrompt="What did this moment feel like for you?"
+                  noteCtaLabel="Leave your private note"
+                />
+              </div>
+            ))}
           </div>
         ))}
       </div>
