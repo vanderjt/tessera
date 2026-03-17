@@ -13,8 +13,8 @@ const moments = [
     reflection:
       'Rain started just as we reached the overlook. We stood under the cedar branches, listening instead of speaking, and the city lights softened into a quiet blur below us.',
     image: {
-      src: 'https://images.unsplash.com/photo-1527489377706-5bf97e608852?auto=format&fit=crop&w=1200&q=80',
-      alt: 'City lights seen through soft rain at dusk',
+      src: '/images/moments/cedar-overlook.svg',
+      alt: 'Quiet overlook beneath cedar branches at dusk',
     },
   },
   {
@@ -22,6 +22,10 @@ const moments = [
     timestamp: 'Remembered Mar 10, 2026',
     reflection:
       'The kettle kept humming while everyone looked through old photos at the table. Nothing dramatic happened; it just felt like we were exactly where we needed to be.',
+    image: {
+      src: '/images/moments/tea-table.svg',
+      alt: 'Warm tea table with old photographs scattered nearby',
+    },
   },
   {
     author: 'Mae',
@@ -29,9 +33,53 @@ const moments = [
     reflection:
       'We left the windows open all afternoon. The room smelled like rain and oranges, and someone started telling stories from years ago as if no time had passed.',
     image: {
-      src: 'https://images.unsplash.com/photo-1470165518248-ff79316f145d?auto=format&fit=crop&w=1200&q=80',
-      alt: 'Warm interior by a rain-streaked window',
+      src: '/images/moments/window-rain.svg',
+      alt: 'Rain-touched window in a softly lit room',
     },
+  },
+  {
+    author: 'Jonah',
+    timestamp: 'Remembered Feb 27, 2026',
+    reflection:
+      'I found your note tucked into the cookbook again. The paper is soft at the fold now. I still read it before I start chopping anything.',
+  },
+  {
+    author: 'Lina',
+    timestamp: 'Remembered Feb 21, 2026',
+    reflection:
+      'We sat on the rug while the lamp stayed on in the corner, each of us half-talking, half-daydreaming. The room felt gentler than usual.',
+    image: {
+      src: '/images/moments/lamp-corner.svg',
+      alt: 'Soft lamp glow in a quiet living room corner',
+    },
+  },
+  {
+    author: 'Sam',
+    timestamp: 'Remembered Feb 18, 2026',
+    reflection:
+      'No one was in a hurry, so supper stretched. Someone poured one last cup of tea and we stayed at the table until the street was fully dark.',
+  },
+  {
+    author: 'Ivy',
+    timestamp: 'Remembered Feb 12, 2026',
+    reflection:
+      'The shoreline was cold and almost empty. We walked without deciding a direction and came home with quiet hands and salt on our sleeves.',
+    image: {
+      src: '/images/moments/shoreline.svg',
+      alt: 'Muted winter shoreline under pale sky',
+    },
+  },
+  {
+    author: 'Rae',
+    timestamp: 'Remembered Feb 8, 2026',
+    reflection:
+      'I heard laughter from the kitchen before I reached the door and knew it was one of those evenings that would feel familiar for a long time.',
+  },
+  {
+    author: 'Theo',
+    timestamp: 'Remembered Feb 2, 2026',
+    reflection:
+      'A short power outage left us with candles and borrowed blankets. We sat close, listening to wind at the windows, and the night slowed down on its own.',
   },
 ];
 
