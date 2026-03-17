@@ -38,7 +38,7 @@ export default function MomentCard({
 
   return (
     <article
-      className={`rounded-2xl border border-stone-200/80 bg-white/90 p-5 shadow-[0_6px_24px_-20px_rgba(28,25,23,0.45)] sm:p-6 ${className ?? ''}`}
+      className={`rounded-[1.4rem] border border-stone-200/70 bg-white/80 p-5 shadow-[0_10px_30px_-24px_rgba(28,25,23,0.5)] sm:p-6 ${className ?? ''}`}
       aria-label={`Remembered by ${author}`}
     >
       <header className="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm text-stone-500">

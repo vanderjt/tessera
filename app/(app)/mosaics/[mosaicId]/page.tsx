@@ -39,15 +39,15 @@ export default async function MosaicPage({ params }: PageProps) {
   const { mosaicId } = await params;
 
   const placementPattern = [
-    'md:translate-y-0 md:pr-4',
-    'md:translate-y-10 md:pl-4',
-    'md:translate-y-4 md:pr-6',
-    'md:translate-y-12 md:pl-2',
+    'md:translate-y-0 md:pr-5',
+    'md:translate-y-8 md:pl-3',
+    'md:translate-y-3 md:pr-8',
+    'md:translate-y-10 md:pl-2',
   ];
 
   return (
-    <section className="max-w-5xl pb-8">
-      <header className="space-y-4 border-b border-stone-200/70 pb-8">
+    <section className="max-w-5xl rounded-[2rem] bg-stone-50/45 px-1 pb-10">
+      <header className="space-y-4 pb-7">
         <p className="page-kicker">Mosaic chapter</p>
         <h1 className="page-title">Late Winter Evenings</h1>
         <p className="page-body max-w-2xl">
@@ -57,7 +57,9 @@ export default async function MosaicPage({ params }: PageProps) {
         <p className="text-xs uppercase tracking-[0.18em] text-stone-500">Sanctuary chapter • {mosaicId}</p>
       </header>
 
-      <div className="mt-10 flex items-center justify-between gap-4">
+      <div className="mt-2 h-px w-full bg-gradient-to-r from-stone-200/60 via-stone-200/30 to-transparent" />
+
+      <div className="mt-7 flex items-center justify-between gap-4">
         <p className="max-w-xl text-sm text-stone-600">
           These tesserae are placed intentionally, like stones on a shared wall. Take your time and linger where
           something resonates.
@@ -70,12 +72,12 @@ export default async function MosaicPage({ params }: PageProps) {
         </button>
       </div>
 
-      <div className="mt-10 space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-8 md:space-y-0 lg:gap-x-12">
+      <div className="mt-9 space-y-9 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] md:gap-x-6 md:gap-y-7 md:space-y-0 lg:gap-x-10">
         {moments.map((moment, index) => (
           <div
             key={`${moment.author}-${moment.timestamp}`}
             className={`${placementPattern[index % placementPattern.length]} ${
-              !moment.image ? 'md:w-[92%] md:justify-self-start' : ''
+              !moment.image ? 'md:w-[93%] md:justify-self-start' : ''
             }`}
           >
             <MomentCard
