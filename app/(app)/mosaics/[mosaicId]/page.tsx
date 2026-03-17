@@ -111,7 +111,7 @@ export default async function MosaicPage({ params }: PageProps) {
 
   return (
     <section className="max-w-5xl rounded-[2rem] bg-stone-50/45 px-1 pb-10">
-      <header className="space-y-4 pb-5">
+      <header className="space-y-3 pb-2">
         <p className="page-kicker">Mosaic chapter</p>
         <h1 className="page-title">Late Winter Evenings</h1>
         <p className="page-body max-w-2xl">
@@ -120,24 +120,23 @@ export default async function MosaicPage({ params }: PageProps) {
         </p>
         <p className="text-xs uppercase tracking-[0.18em] text-stone-500">Sanctuary chapter • {mosaicId}</p>
 
-        <div className="pt-3">
-          <div className="h-px w-full bg-gradient-to-r from-stone-200/40 via-stone-200/20 to-transparent" />
-          <div className="mt-5 flex flex-wrap items-start justify-between gap-x-6 gap-y-3">
-            <p className="max-w-xl text-sm leading-relaxed text-stone-600">
-              These tesserae are placed intentionally, like stones on a shared wall. Take your time and linger where
-              something resonates.
-            </p>
-            <button
-              type="button"
-              className="rounded-full border border-stone-300/80 bg-stone-50/70 px-4 py-2 text-sm text-stone-700 transition hover:border-stone-400 hover:text-stone-900"
-            >
-              Add a tessera
-            </button>
-          </div>
+        <div className="space-y-3 pt-1">
+          <p className="max-w-xl text-sm leading-relaxed text-stone-600">
+            These tesserae are placed intentionally, like stones on a shared wall. Take your time and linger where
+            something resonates.
+          </p>
+          <button
+            type="button"
+            className="rounded-full border border-stone-300/80 bg-stone-50/70 px-4 py-2 text-sm text-stone-700 transition hover:border-stone-400 hover:text-stone-900"
+          >
+            Add a tessera
+          </button>
         </div>
       </header>
 
-      <div className="mt-6 space-y-8">
+      <div aria-hidden="true" className="mx-3 h-px bg-gradient-to-r from-transparent via-stone-300/35 to-transparent" />
+
+      <div className="mt-9 space-y-8">
         {momentBands.map((band, bandIndex) => (
           <div key={`band-${bandIndex}`} className="grid gap-5 md:grid-cols-12 lg:gap-6">
             {band.moments.map((moment, momentIndex) => (
