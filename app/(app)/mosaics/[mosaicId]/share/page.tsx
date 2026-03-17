@@ -45,7 +45,7 @@ export default function ShareMomentPage({ params }: PageProps) {
     <section className="mx-auto max-w-4xl px-4 pb-12 sm:px-6">
       <form
         onSubmit={handlePlaceTessera}
-        className="relative mt-4 overflow-hidden rounded-[0.9rem] border border-stone-300/80 bg-gradient-to-b from-stone-100/80 to-stone-200/75 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),inset_0_-1px_0_rgba(120,113,108,0.18),0_4px_10px_-8px_rgba(28,25,23,0.6)] sm:p-8"
+        className="relative mt-4 overflow-hidden rounded-[0.45rem] border border-stone-300/85 bg-gradient-to-b from-stone-100/85 to-stone-200/80 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.45),inset_0_-1px_0_rgba(120,113,108,0.22),0_2px_6px_-5px_rgba(28,25,23,0.55)] sm:p-8"
       >
         <div className="relative space-y-7">
           <header className="space-y-3">
@@ -62,7 +62,7 @@ export default function ShareMomentPage({ params }: PageProps) {
             <div className="space-y-4">
               <p className="text-base font-medium text-stone-800">What would you like this tessera to hold?</p>
 
-              <div className="rounded-[0.7rem] border border-stone-300/85 bg-stone-50/95 p-5 shadow-[0_5px_12px_-10px_rgba(41,37,36,0.7),0_1px_0_rgba(255,255,255,0.7)] sm:p-7">
+              <div className="rounded-[0.4rem] border border-stone-300/90 bg-stone-50/95 p-5 shadow-[0_2px_5px_-4px_rgba(41,37,36,0.55),0_1px_0_rgba(255,255,255,0.6)] sm:p-7">
                 <textarea
                   id="reflection"
                   value={reflection}
@@ -94,7 +94,7 @@ export default function ShareMomentPage({ params }: PageProps) {
                 />
                 <label
                   htmlFor="photo"
-                  className="group flex min-h-36 cursor-pointer flex-col justify-center gap-3 rounded-[0.7rem] border border-dashed border-stone-400/80 bg-stone-50/70 px-4 py-5 text-left text-sm text-stone-700 transition hover:border-stone-500"
+                  className="group flex min-h-36 cursor-pointer flex-col justify-center gap-3 rounded-[0.4rem] border border-dashed border-stone-400/85 bg-stone-50/75 px-4 py-5 text-left text-sm text-stone-700 transition hover:border-stone-500"
                 >
                   <span className="text-xs uppercase tracking-[0.12em] text-stone-500/95">Photo placement</span>
                   <span className="text-base leading-snug text-stone-700">
@@ -110,7 +110,7 @@ export default function ShareMomentPage({ params }: PageProps) {
                     width={960}
                     height={640}
                     unoptimized
-                    className="max-h-48 w-full rounded-md object-cover ring-1 ring-stone-300/70"
+                    className="max-h-48 w-full rounded-[0.35rem] object-cover ring-1 ring-stone-300/70"
                   />
                 ) : null}
               </div>
@@ -120,14 +120,14 @@ export default function ShareMomentPage({ params }: PageProps) {
                 <div className="flex flex-wrap items-center gap-2">
                   <Link
                     href={`/mosaics/${mosaicId}`}
-                    className="rounded-full border border-stone-300/85 px-4 py-2 text-sm text-stone-700 transition hover:border-stone-400 hover:text-stone-900"
+                    className="rounded-[0.35rem] border border-stone-300/90 px-4 py-2 text-sm text-stone-700 transition hover:border-stone-400 hover:text-stone-900"
                   >
                     Cancel
                   </Link>
                   <button
                     type="submit"
                     disabled={!canPlaceTessera}
-                    className="rounded-full bg-stone-900 px-5 py-2 text-sm text-stone-100 transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-100"
+                    className="rounded-[0.35rem] bg-stone-900 px-5 py-2 text-sm text-stone-100 transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-100"
                   >
                     Place tessera
                   </button>
