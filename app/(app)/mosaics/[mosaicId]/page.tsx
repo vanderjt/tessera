@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import MomentCard from '../../../../components/moments/MomentCard';
 
 interface PageProps {
@@ -139,12 +141,12 @@ export default async function MosaicPage({ params }: PageProps) {
               These tesserae are placed intentionally, like stones on a shared wall. Take your time and linger where
               something resonates.
             </p>
-            <button
-              type="button"
-              className="rounded-full border border-stone-400/70 bg-stone-100/90 px-4 py-2 text-sm text-stone-700 transition hover:border-stone-500/90 hover:text-stone-900"
+            <Link
+              href={`/mosaics/${mosaicId}/share`}
+              className="inline-flex rounded-full border border-stone-400/70 bg-stone-100/90 px-4 py-2 text-sm text-stone-700 transition hover:border-stone-500/90 hover:text-stone-900"
             >
               Add a tessera
-            </button>
+            </Link>
           </div>
         </div>
       </header>
