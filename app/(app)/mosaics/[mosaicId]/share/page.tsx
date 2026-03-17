@@ -45,7 +45,7 @@ export default function ShareMomentPage({ params }: PageProps) {
     <section className="mx-auto max-w-4xl px-4 pb-12 sm:px-6">
       <form
         onSubmit={handlePlaceTessera}
-        className="relative mt-4 overflow-hidden rounded-[0.45rem] border border-stone-300/85 bg-gradient-to-b from-stone-100/85 to-stone-200/80 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.45),inset_0_-1px_0_rgba(120,113,108,0.22),0_2px_6px_-5px_rgba(28,25,23,0.55)] sm:p-8"
+        className="relative mt-4 overflow-hidden rounded-[0.35rem] bg-gradient-to-b from-stone-100/75 via-stone-100/65 to-stone-200/55 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.42)] sm:p-8"
       >
         <div className="relative space-y-7">
           <header className="space-y-3">
@@ -58,18 +58,18 @@ export default function ShareMomentPage({ params }: PageProps) {
             <p className="text-[11px] uppercase tracking-[0.16em] text-stone-500/95">Mosaic chapter • {mosaicId}</p>
           </header>
 
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start lg:gap-8">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start lg:gap-10">
             <div className="space-y-4">
               <p className="text-base font-medium text-stone-800">What would you like this tessera to hold?</p>
 
-              <div className="rounded-[0.4rem] border border-stone-300/90 bg-stone-50/95 p-5 shadow-[0_2px_5px_-4px_rgba(41,37,36,0.55),0_1px_0_rgba(255,255,255,0.6)] sm:p-7">
+              <div className="rounded-[0.35rem] border border-stone-300/70 bg-stone-50/98 p-6 shadow-[0_14px_24px_-20px_rgba(28,25,23,0.55),0_1px_0_rgba(255,255,255,0.7)] ring-1 ring-stone-200/60 sm:p-8">
                 <textarea
                   id="reflection"
                   value={reflection}
                   onChange={(event) => setReflection(event.target.value)}
                   placeholder="Begin with the part of this moment you most want to keep."
                   rows={9}
-                  className="w-full resize-none border-0 bg-transparent p-0 text-base leading-relaxed text-stone-800 outline-none placeholder:text-stone-500/80"
+                  className="w-full resize-none border-0 bg-transparent p-0 text-base leading-relaxed text-stone-800 outline-none placeholder:text-stone-400/90"
                 />
               </div>
 
@@ -78,11 +78,11 @@ export default function ShareMomentPage({ params }: PageProps) {
               </p>
             </div>
 
-            <aside className="space-y-5 lg:border-l lg:border-stone-400/80 lg:pl-8">
+            <aside className="space-y-5 lg:pl-2">
               <div className="space-y-4">
                 <div className="space-y-2">
                   <p className="text-xs uppercase tracking-[0.14em] text-stone-500/90">Tool shelf</p>
-                  <p className="text-sm text-stone-700/95">Optional photo tool</p>
+                  <p className="text-sm text-stone-700/90">Optional photo tool</p>
                 </div>
 
                 <input
@@ -94,7 +94,7 @@ export default function ShareMomentPage({ params }: PageProps) {
                 />
                 <label
                   htmlFor="photo"
-                  className="group flex min-h-36 cursor-pointer flex-col justify-center gap-3 rounded-[0.4rem] border border-dashed border-stone-400/85 bg-stone-50/75 px-4 py-5 text-left text-sm text-stone-700 transition hover:border-stone-500"
+                  className="group flex min-h-36 cursor-pointer flex-col justify-center gap-3 rounded-[0.35rem] bg-stone-100/60 px-4 py-5 text-left text-sm text-stone-700 shadow-[inset_0_0_0_1px_rgba(120,113,108,0.24)] transition hover:bg-stone-100/75 hover:shadow-[inset_0_0_0_1px_rgba(87,83,78,0.35)]"
                 >
                   <span className="text-xs uppercase tracking-[0.12em] text-stone-500/95">Photo placement</span>
                   <span className="text-base leading-snug text-stone-700">
@@ -110,7 +110,7 @@ export default function ShareMomentPage({ params }: PageProps) {
                     width={960}
                     height={640}
                     unoptimized
-                    className="max-h-48 w-full rounded-[0.35rem] object-cover ring-1 ring-stone-300/70"
+                    className="max-h-48 w-full rounded-[0.35rem] object-cover ring-1 ring-stone-300/60"
                   />
                 ) : null}
               </div>
