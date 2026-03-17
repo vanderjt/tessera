@@ -90,7 +90,7 @@ const momentBands = [
   },
   {
     moments: [moments[2]],
-    slots: ['md:col-span-8 md:col-start-3 lg:col-span-7 lg:col-start-4'],
+    slots: ['md:col-span-8 lg:col-span-7'],
   },
   {
     moments: [moments[3], moments[4]],
@@ -105,6 +105,20 @@ const momentBands = [
     slots: ['md:col-span-5 lg:col-span-4 lg:col-start-3', 'md:col-span-7 md:pt-5 lg:col-span-6 lg:col-start-7'],
   },
 ];
+
+const bandSideByIndex = momentBands.reduce<Record<number, 'left' | 'right'>>((sideMap, band, bandIndex) => {
+  if (band.moments.length !== 1) {
+    return sideMap;
+  }
+
+  const singleBandsSeen = Object.keys(sideMap).length;
+  const side: 'left' | 'right' = singleBandsSeen % 2 === 0 ? 'left' : 'right';
+
+  return {
+    ...sideMap,
+    [bandIndex]: side,
+  };
+}, {});
 
 export default async function MosaicPage({ params }: PageProps) {
   const { mosaicId } = await params;
@@ -140,7 +154,16 @@ export default async function MosaicPage({ params }: PageProps) {
         {momentBands.map((band, bandIndex) => (
           <div key={`band-${bandIndex}`} className="grid gap-5 md:grid-cols-12 lg:gap-6">
             {band.moments.map((moment, momentIndex) => (
-              <div key={`${moment.author}-${moment.timestamp}`} className={band.slots[momentIndex]}>
+              <div
+                key={`${moment.author}-${moment.timestamp}`}
+                className={
+                  band.moments.length === 1
+                    ? bandSideByIndex[bandIndex] === 'left'
+                      ? `${band.slots[momentIndex]} md:col-start-1 lg:col-start-1`
+                      : `${band.slots[momentIndex]} md:col-start-5 lg:col-start-6`
+                    : band.slots[momentIndex]
+                }
+              >
                 <MomentCard
                   author={moment.author}
                   timestamp={moment.timestamp}
