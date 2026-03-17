@@ -140,13 +140,13 @@ export default async function MosaicPage({ params }: PageProps) {
         </div>
       </header>
 
-      <div className="relative mt-4 rounded-[1.35rem] bg-stone-200/50 px-2.5 pt-4 pb-3 ring-1 ring-inset ring-stone-600/10 [box-shadow:inset_0_1px_0_rgba(255,255,255,0.38),inset_0_11px_18px_-16px_rgba(41,37,36,0.34),inset_0_-14px_20px_-18px_rgba(41,37,36,0.26)] md:px-3">
+      <div className="relative mt-4 rounded-[1.35rem] bg-stone-200/50 bg-[linear-gradient(180deg,rgba(250,250,249,0.12)_0%,rgba(231,229,228,0.06)_56%,rgba(231,229,228,0.03)_100%)] px-4 pt-5 pb-4 ring-1 ring-inset ring-stone-600/10 [box-shadow:inset_0_1px_0_rgba(255,255,255,0.34),inset_0_12px_20px_-16px_rgba(28,25,23,0.36),inset_0_-10px_16px_-15px_rgba(255,255,255,0.18)] md:px-6 lg:px-7">
         <div
-          className="pointer-events-none absolute inset-x-2.5 top-0 h-7 bg-gradient-to-b from-stone-100/50 via-stone-100/25 to-transparent md:inset-x-3"
+          className="pointer-events-none absolute inset-x-4 top-0 h-8 bg-gradient-to-b from-stone-700/10 via-stone-700/5 to-transparent md:inset-x-6 lg:inset-x-7"
           aria-hidden
         />
         <div
-          className="pointer-events-none absolute inset-x-2.5 bottom-0 h-8 bg-gradient-to-t from-stone-300/45 via-stone-200/10 to-transparent md:inset-x-3"
+          className="pointer-events-none absolute inset-x-4 bottom-0 h-10 bg-gradient-to-t from-stone-50/45 via-stone-50/15 to-transparent md:inset-x-6 lg:inset-x-7"
           aria-hidden
         />
         {momentBands.map((band, bandIndex) => (
