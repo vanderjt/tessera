@@ -140,28 +140,26 @@ export default async function MosaicPage({ params }: PageProps) {
         </div>
       </header>
 
-      <div className="mt-4 rounded-md bg-stone-100/50 px-1 pt-5 pb-2 md:px-2">
-        <div>
-          {momentBands.map((band, bandIndex) => (
-            <div
-              key={`band-${bandIndex}`}
-              className={`grid gap-5 md:grid-cols-12 lg:gap-6 ${bandIndex === 0 ? '' : band.spacing}`}
-            >
-              {band.moments.map((moment, momentIndex) => (
-                <div key={`${moment.author}-${moment.timestamp}`} className={band.slots[momentIndex]}>
-                  <MomentCard
-                    author={moment.author}
-                    timestamp={moment.timestamp}
-                    reflection={moment.reflection}
-                    image={moment.image}
-                    notePrompt="What did this moment feel like for you?"
-                    noteCtaLabel="Leave your private note"
-                  />
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
+      <div className="mt-4 rounded-xl bg-stone-100/65 px-2.5 pt-5 pb-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),inset_0_-1px_0_rgba(120,113,108,0.08)] md:px-3">
+        {momentBands.map((band, bandIndex) => (
+          <div
+            key={`band-${bandIndex}`}
+            className={`grid gap-5 md:grid-cols-12 lg:gap-6 ${bandIndex === 0 ? '' : band.spacing}`}
+          >
+            {band.moments.map((moment, momentIndex) => (
+              <div key={`${moment.author}-${moment.timestamp}`} className={band.slots[momentIndex]}>
+                <MomentCard
+                  author={moment.author}
+                  timestamp={moment.timestamp}
+                  reflection={moment.reflection}
+                  image={moment.image}
+                  notePrompt="What did this moment feel like for you?"
+                  noteCtaLabel="Leave your private note"
+                />
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </section>
   );
