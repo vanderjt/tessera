@@ -116,7 +116,7 @@ export default async function MosaicPage({ params }: PageProps) {
   return (
     <section className="max-w-5xl px-1 pb-10">
       <header className="pb-1">
-        <div className="rounded-md border border-stone-300/60 bg-stone-100/90 px-5 py-6 md:px-7 md:py-7">
+        <div className="rounded-md border border-stone-300/65 bg-stone-100/95 px-5 py-6 shadow-[0_6px_16px_-18px_rgba(41,37,36,0.75)] md:px-7 md:py-7">
           <p className="page-kicker tracking-[0.12em] text-stone-600/95">Mosaic chapter</p>
           <h1 className="page-title mt-2 text-stone-900">Late Winter Evenings</h1>
           <p className="page-body mt-3 max-w-2xl text-stone-700/95">
@@ -140,7 +140,11 @@ export default async function MosaicPage({ params }: PageProps) {
         </div>
       </header>
 
-      <div className="mt-4 rounded-xl bg-stone-100/65 px-2.5 pt-5 pb-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),inset_0_-1px_0_rgba(120,113,108,0.08)] md:px-3">
+      <div className="relative mt-4 px-2.5 pt-4 pb-3 md:px-3">
+        <div
+          className="pointer-events-none absolute inset-x-2.5 top-0 h-6 bg-gradient-to-b from-stone-100/55 via-stone-50/25 to-transparent md:inset-x-3"
+          aria-hidden
+        />
         {momentBands.map((band, bandIndex) => (
           <div
             key={`band-${bandIndex}`}
