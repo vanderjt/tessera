@@ -49,51 +49,65 @@ export default function ShareMomentPage({ params }: PageProps) {
         A tessera begins with a reflection. Photos are optional.
       </p>
 
-      <form onSubmit={handlePlaceTessera} className="mt-8 space-y-7">
+      <form
+        onSubmit={handlePlaceTessera}
+        className="mt-8 space-y-7 rounded-3xl bg-stone-100/80 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_12px_28px_-20px_rgba(41,37,36,0.65)] ring-1 ring-stone-200/80 sm:p-8"
+      >
         <p className="text-[11px] uppercase tracking-[0.16em] text-stone-500/95">Mosaic chapter • {mosaicId}</p>
 
-        <div className="space-y-3">
-          <label htmlFor="reflection" className="block text-base font-medium text-stone-900">
-            What would you like to place here?
-          </label>
-          <textarea
-            id="reflection"
-            value={reflection}
-            onChange={(event) => setReflection(event.target.value)}
-            placeholder="Begin with the part of this moment you want to remember."
-            rows={8}
-            className="w-full rounded-2xl border border-stone-300/75 bg-stone-50/60 px-4 py-3 text-base leading-relaxed text-stone-800 outline-none transition placeholder:text-stone-500/80 focus:border-stone-400 focus:ring-2 focus:ring-stone-300/55"
-          />
+        <div className="space-y-4">
+          <p className="text-base font-medium text-stone-900">What would you like to remember from this moment?</p>
+
+          <div className="rounded-3xl bg-stone-50/95 p-5 shadow-[0_8px_22px_-18px_rgba(41,37,36,0.7)] ring-1 ring-stone-200/75 sm:p-6">
+            <textarea
+              id="reflection"
+              value={reflection}
+              onChange={(event) => setReflection(event.target.value)}
+              placeholder="Begin with the part of this moment you want to remember."
+              rows={8}
+              className="w-full resize-none border-0 bg-transparent p-0 text-base leading-relaxed text-stone-800 outline-none placeholder:text-stone-500/80"
+            />
+          </div>
+
           <p className="text-sm leading-relaxed text-stone-600/95">
             Take your time. Let the reflection carry the moment, even if you add a photo.
           </p>
         </div>
 
-        <div className="space-y-3 pt-1">
+        <div className="space-y-3">
           <label htmlFor="photo" className="block text-sm font-medium text-stone-700/95">
             Add a photo, if it belongs with the moment
           </label>
-          <input
-            id="photo"
-            type="file"
-            accept="image/*"
-            onChange={handlePhotoChange}
-            className="block w-full rounded-xl border border-stone-300/70 bg-stone-50/70 px-3 py-2 text-sm text-stone-700 file:mr-3 file:rounded-full file:border-0 file:bg-stone-200/90 file:px-3 file:py-1.5 file:text-sm file:text-stone-700"
-          />
-          {photoName ? <p className="text-xs text-stone-500/95">Selected: {photoName}</p> : null}
-          {photoPreview ? (
-            <Image
-              src={photoPreview}
-              alt="Selected moment preview"
-              width={960}
-              height={640}
-              unoptimized
-              className="max-h-64 w-full rounded-xl object-cover ring-1 ring-stone-300/70"
+
+          <div className="rounded-2xl bg-stone-50/70 p-4 ring-1 ring-stone-200/70">
+            <input
+              id="photo"
+              type="file"
+              accept="image/*"
+              onChange={handlePhotoChange}
+              className="sr-only"
             />
-          ) : null}
+            <label
+              htmlFor="photo"
+              className="inline-flex cursor-pointer items-center rounded-full bg-stone-200/80 px-4 py-2 text-sm text-stone-700 transition hover:bg-stone-300/80"
+            >
+              Choose photo
+            </label>
+            {photoName ? <p className="mt-3 text-xs text-stone-500/95">Selected: {photoName}</p> : null}
+            {photoPreview ? (
+              <Image
+                src={photoPreview}
+                alt="Selected moment preview"
+                width={960}
+                height={640}
+                unoptimized
+                className="mt-4 max-h-64 w-full rounded-xl object-cover ring-1 ring-stone-300/70"
+              />
+            ) : null}
+          </div>
         </div>
 
-        <div className="flex items-center gap-3 pt-3">
+        <div className="flex items-center gap-3 pt-2">
           <Link
             href={`/mosaics/${mosaicId}`}
             className="rounded-full border border-stone-300/85 px-4 py-2 text-sm text-stone-700 transition hover:border-stone-400 hover:text-stone-900"
