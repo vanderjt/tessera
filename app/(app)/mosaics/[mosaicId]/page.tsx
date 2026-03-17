@@ -86,18 +86,22 @@ const moments = [
 const momentBands = [
   {
     moments: [moments[0], moments[1]],
+    spacing: 'mt-1',
     slots: ['md:col-span-7 lg:col-span-7', 'md:col-span-5 md:pt-8 lg:col-span-4 lg:col-start-9'],
   },
   {
     moments: [moments[2], moments[3]],
+    spacing: 'mt-2',
     slots: ['md:col-span-5 lg:col-span-4 lg:col-start-2', 'md:col-span-7 md:pt-6 lg:col-span-6 lg:col-start-7'],
   },
   {
     moments: [moments[4], moments[5]],
+    spacing: 'mt-1.5',
     slots: ['md:col-span-8 lg:col-span-7', 'md:col-span-4 md:pt-7 lg:col-span-4 lg:col-start-9'],
   },
   {
     moments: [moments[6], moments[7], moments[8]],
+    spacing: 'mt-3',
     slots: [
       'md:col-span-6 lg:col-span-4 lg:col-start-2',
       'md:col-span-6 md:pt-5 lg:col-span-5 lg:col-start-7',
@@ -139,9 +143,12 @@ export default async function MosaicPage({ params }: PageProps) {
       <div className="mt-4 bg-stone-100/35 px-1 pt-6 pb-2 md:px-2">
         <div aria-hidden="true" className="mx-2 h-px bg-stone-300/30" />
 
-        <div className="mt-6 space-y-8">
+        <div className="mt-6">
           {momentBands.map((band, bandIndex) => (
-            <div key={`band-${bandIndex}`} className="grid gap-5 md:grid-cols-12 lg:gap-6">
+            <div
+              key={`band-${bandIndex}`}
+              className={`grid gap-5 md:grid-cols-12 lg:gap-6 ${bandIndex === 0 ? '' : band.spacing}`}
+            >
               {band.moments.map((moment, momentIndex) => (
                 <div key={`${moment.author}-${moment.timestamp}`} className={band.slots[momentIndex]}>
                   <MomentCard
