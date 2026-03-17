@@ -42,10 +42,10 @@ export default function ShareMomentPage({ params }: PageProps) {
   };
 
   return (
-    <section className="mx-auto max-w-4xl px-4 pb-12 sm:px-6">
+    <section className="mx-auto max-w-4xl bg-stone-100/70 px-4 pb-12 sm:px-6">
       <form
         onSubmit={handlePlaceTessera}
-        className="relative mt-4 overflow-hidden rounded-[0.35rem] bg-gradient-to-b from-stone-50 via-stone-100/95 to-stone-200/70 p-6 shadow-[0_14px_34px_rgba(41,37,36,0.07),inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(120,113,108,0.12)] sm:p-8"
+        className="relative mt-4 overflow-hidden rounded-[0.35rem] border border-stone-200/85 bg-stone-50 p-6 sm:p-8"
       >
         <div className="relative space-y-7">
           <header className="space-y-3">
@@ -62,7 +62,7 @@ export default function ShareMomentPage({ params }: PageProps) {
             <div className="space-y-4">
               <p className="text-base font-medium text-stone-800">What would you like this tessera to hold?</p>
 
-              <div className="rounded-[0.35rem] bg-stone-200/62 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_0_0_1px_rgba(87,83,78,0.18),inset_0_10px_16px_rgba(68,64,60,0.045)] sm:p-8">
+              <div className="rounded-[0.35rem] bg-stone-200/62 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.42),inset_0_0_0_1px_rgba(87,83,78,0.18),inset_0_10px_16px_rgba(68,64,60,0.04)] sm:p-8">
                 <textarea
                   id="reflection"
                   value={reflection}
@@ -73,12 +73,9 @@ export default function ShareMomentPage({ params }: PageProps) {
                 />
               </div>
 
-              <p className="text-sm leading-relaxed text-stone-600/95">
-                Stay with the feeling for a moment. Let the reflection carry the memory before anything else.
-              </p>
             </div>
 
-            <aside className="space-y-5 rounded-[0.35rem] bg-stone-100/60 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.42),inset_0_0_0_1px_rgba(120,113,108,0.14)] lg:pl-5">
+            <aside className="space-y-5 rounded-[0.35rem] bg-stone-100/78 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.42),inset_0_0_0_1px_rgba(120,113,108,0.14)] lg:pl-5">
               <p className="text-xs uppercase tracking-[0.14em] text-stone-500/90">Tool shelf</p>
 
               <div className="space-y-3">
