@@ -140,9 +140,13 @@ export default async function MosaicPage({ params }: PageProps) {
         </div>
       </header>
 
-      <div className="relative mt-4 px-2.5 pt-4 pb-3 md:px-3">
+      <div className="relative mt-4 rounded-[1.35rem] bg-stone-200/50 px-2.5 pt-4 pb-3 ring-1 ring-inset ring-stone-600/10 [box-shadow:inset_0_1px_0_rgba(255,255,255,0.38),inset_0_11px_18px_-16px_rgba(41,37,36,0.34),inset_0_-14px_20px_-18px_rgba(41,37,36,0.26)] md:px-3">
         <div
-          className="pointer-events-none absolute inset-x-2.5 top-0 h-6 bg-gradient-to-b from-stone-100/55 via-stone-50/25 to-transparent md:inset-x-3"
+          className="pointer-events-none absolute inset-x-2.5 top-0 h-7 bg-gradient-to-b from-stone-100/50 via-stone-100/25 to-transparent md:inset-x-3"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-x-2.5 bottom-0 h-8 bg-gradient-to-t from-stone-300/45 via-stone-200/10 to-transparent md:inset-x-3"
           aria-hidden
         />
         {momentBands.map((band, bandIndex) => (
