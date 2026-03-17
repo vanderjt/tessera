@@ -43,18 +43,21 @@ export default function ShareMomentPage({ params }: PageProps) {
 
   return (
     <section className="mx-auto max-w-2xl px-2 pb-10">
-      <p className="page-kicker">Add a tessera</p>
-      <h1 className="page-title">Add a tessera</h1>
-      <p className="page-body mt-3 max-w-xl text-stone-700/95">
-        A tessera begins with a reflection. Photos are optional.
-      </p>
+      <header className="rounded-[2rem] bg-stone-50/90 px-5 py-6 ring-1 ring-stone-200/70 sm:px-7">
+        <div className="space-y-3">
+          <p className="page-kicker">Add a tessera</p>
+          <h1 className="page-title">Add a tessera</h1>
+          <p className="page-body max-w-xl text-stone-700/95">
+            A tessera begins with a reflection. Photos are optional.
+          </p>
+          <p className="text-[11px] uppercase tracking-[0.16em] text-stone-500/95">Mosaic chapter • {mosaicId}</p>
+        </div>
+      </header>
 
       <form
         onSubmit={handlePlaceTessera}
-        className="mt-8 space-y-7 rounded-3xl bg-stone-100/80 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_12px_28px_-20px_rgba(41,37,36,0.65)] ring-1 ring-stone-200/80 sm:p-8"
+        className="mt-12 space-y-7 rounded-3xl bg-stone-100/80 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_12px_28px_-20px_rgba(41,37,36,0.65)] ring-1 ring-stone-200/80 sm:p-8"
       >
-        <p className="text-[11px] uppercase tracking-[0.16em] text-stone-500/95">Mosaic chapter • {mosaicId}</p>
-
         <div className="space-y-4">
           <p className="text-base font-medium text-stone-900">What would you like to remember from this moment?</p>
 
