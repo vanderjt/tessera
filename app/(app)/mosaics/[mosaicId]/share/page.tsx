@@ -2,7 +2,16 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { ChangeEvent, FormEvent, use, useMemo, useState } from 'react';
+
+type PendingTessera = {
+  id: string;
+  mosaicId: string;
+  reflection: string;
+  photoUrl?: string | null;
+  createdAt: string;
+};
 
 interface PageProps {
   params: Promise<{
@@ -12,9 +21,12 @@ interface PageProps {
 
 export default function ShareMomentPage({ params }: PageProps) {
   const { mosaicId } = use(params);
+  const router = useRouter();
   const [reflection, setReflection] = useState('');
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
   const [photoName, setPhotoName] = useState<string | null>(null);
+  const [isPlacing, setIsPlacing] = useState(false);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
 
   const canPlaceTessera = useMemo(() => reflection.trim().length > 0, [reflection]);
 
@@ -39,6 +51,31 @@ export default function ShareMomentPage({ params }: PageProps) {
 
   const handlePlaceTessera = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const trimmedReflection = reflection.trim();
+
+    if (!trimmedReflection) {
+      return;
+    }
+
+    setIsPlacing(true);
+    setSubmissionError(null);
+
+    const pendingTessera: PendingTessera = {
+      id: `temp-${Date.now()}`,
+      mosaicId,
+      reflection: trimmedReflection,
+      photoUrl: photoPreview ?? null,
+      createdAt: new Date().toISOString(),
+    };
+
+    try {
+      sessionStorage.setItem(`tessera:pending:${mosaicId}`, JSON.stringify(pendingTessera));
+      router.push(`/mosaics/${mosaicId}`);
+    } catch {
+      setSubmissionError('This tessera could not be placed right now. Please try again.');
+      setIsPlacing(false);
+    }
   };
 
   return (
@@ -118,12 +155,13 @@ export default function ShareMomentPage({ params }: PageProps) {
                     </Link>
                     <button
                       type="submit"
-                      disabled={!canPlaceTessera}
+                      disabled={isPlacing || !canPlaceTessera}
                       className="rounded-[0.35rem] border border-stone-900/85 bg-stone-900 px-5 py-2 text-sm text-stone-100 shadow-[0_1px_2px_rgba(28,25,23,0.28)] transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:border-stone-400/60 disabled:bg-stone-300 disabled:text-stone-100 disabled:shadow-none"
                     >
-                      Place tessera
+                      {isPlacing ? 'Placing…' : 'Place tessera'}
                     </button>
                   </div>
+                  {submissionError ? <p className="text-sm text-stone-600/95">{submissionError}</p> : null}
                 </div>
               </aside>
             </div>
